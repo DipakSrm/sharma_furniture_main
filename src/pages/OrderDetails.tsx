@@ -68,12 +68,12 @@ const handleKhaltiPayment = async () => {
           {
             return_url: `${
               import.meta.env.VITE_API_LOCAL_URI
-                ? "http://localhost:8080/orderConfirmation"
+                ? "http://localhost:8081/orderConfirmation"
                 : "http://sharmafurnitures.vercel.app/orderConfirmation"
             }`,
             website_url: `${
               import.meta.env.VITE_API_LOCAL_URI
-                ? "http://localhost:8080/"
+                ? "http://localhost:8081/"
                 : "http://sharmafurnitures.vercel.app/"
             }`,
             amount: parseInt((order.totalAmount * 100).toFixed(2)), // Convert to paisa

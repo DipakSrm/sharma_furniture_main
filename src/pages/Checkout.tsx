@@ -99,11 +99,21 @@ try {
     try {
    
       const response = await axios.post(
-        `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/payment/khalti/initiate`,
+        `${
+          import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI
+        }/payment/khalti/initiate`,
         {
-          return_url: "http://sharmafurnitres.verce.app/orderConfirmation",
-          website_url: "http://sharmafurniture.vercel.app/",
-          amount: parseInt((state.total * 1.13 * 100).toFixed(2)), 
+          return_url: `${
+            import.meta.env.VITE_API_LOCAL_URI
+              ? "http://localhost:8081/orderConfirmation"
+              : "http://sharmafurnitures.vercel.app/orderConfirmation"
+          }`,
+          website_url: `${
+            import.meta.env.VITE_API_LOCAL_URI
+              ? "http://localhost:8081/"
+              : "http://sharmafurnitures.vercel.app/"
+          }`,
+          amount: parseInt((state.total * 1.13 * 100).toFixed(2)),
           purchase_order_id: res.data.data._id,
           purchase_order_name: `${user.name} Order #${res.data.data._id}`,
         },
