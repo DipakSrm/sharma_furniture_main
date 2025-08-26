@@ -62,10 +62,20 @@ const handleKhaltiPayment = async () => {
    }
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/spayment/khalti/initiate`,
+          `${
+            import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI
+          }/spayment/khalti/initiate`,
           {
-            return_url: "http://sharmafurnitures.verce.app/orderConfirmation",
-            website_url: "http://sharmafurnitures.verce.app/",
+            return_url: `${
+              import.meta.env.VITE_API_LOCAL_URI
+                ? "http://localhost:8080/orderConfirmation"
+                : "http://sharmafurnitures.vercel.app/orderConfirmation"
+            }`,
+            website_url: `${
+              import.meta.env.VITE_API_LOCAL_URI
+                ? "http://localhost:8080/"
+                : "http://sharmafurnitures.vercel.app/"
+            }`,
             amount: parseInt((order.totalAmount * 100).toFixed(2)), // Convert to paisa
             purchase_order_id: order._id,
             purchase_order_name: `${user.name} Order #${order._id}`,
