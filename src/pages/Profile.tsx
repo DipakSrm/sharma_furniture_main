@@ -39,7 +39,7 @@ const Profile = () => {
       const fetchUserData = async () => {
         try {
           const response = await axios.get(
-            `${import.meta.env.VITE_API_URI}/users/me`,
+            `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/users/me`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -68,7 +68,7 @@ const Profile = () => {
       const fetchAddressData = async () => {
         try {
           const response = await axios.get(
-            `${import.meta.env.VITE_API_URI}/addresses/`,
+            `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/addresses/`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -107,7 +107,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const response = await axios.patch(
-        `${import.meta.env.VITE_API_URI}/users/me/${userResponse?._id}`,
+        `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/users/me/${userResponse?._id}`,
         {
           name: `${profileData.firstName} ${profileData.lastName}`,
           email: profileData.email,
@@ -142,7 +142,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URI}/addresses/`,
+        `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/addresses/`,
         {
           addressLine: addressData.addressLine,
           city: addressData.city,
@@ -179,7 +179,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const response = await axios.patch(
-        `${import.meta.env.VITE_API_URI}/addresses/${addressResponse?._id}`,
+        `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/addresses/${addressResponse?._id}`,
         {
           addressLine: addressData.addressLine,
           city: addressData.city,

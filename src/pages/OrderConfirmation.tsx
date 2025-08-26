@@ -38,7 +38,7 @@ const OrderConfirmation: React.FC = () => {
       if (paymentData.status === "Completed" && paymentData.purchase_order_id && paymentData.pidx) {
         try {
           const response = await axios.patch(
-            `${import.meta.env.VITE_API_URI}/orders/${paymentData.purchase_order_id}/payment`,
+            `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/orders/${paymentData.purchase_order_id}/payment`,
             {
               paymentToken: paymentData.pidx,
             },

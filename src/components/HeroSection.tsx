@@ -14,7 +14,7 @@ const HeroSection = () => {
     const fetchFeaturedProducts = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URI}/products/search?isFeatured=true`
+          `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/products/search?isFeatured=true`
         );
         if(response.status ===200){
 setFeaturedProducts(response.data.data.products);

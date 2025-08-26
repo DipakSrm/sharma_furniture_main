@@ -27,7 +27,7 @@ const [order, setOrder] = useState<IOrder | null>(null);
       setLoading(true);
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URI}/sorders/${orderId}`,
+          `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/sorders/${orderId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -62,7 +62,7 @@ const handleKhaltiPayment = async () => {
    }
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_API_URI}/spayment/khalti/initiate`,
+          `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/spayment/khalti/initiate`,
           {
             return_url: "http://sharmafurnitures.verce.app/orderConfirmation",
             website_url: "http://sharmafurnitures.verce.app/",

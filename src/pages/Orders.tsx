@@ -23,7 +23,7 @@ if(!token) return
     setLoading(true);
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URI}/orders/my-orders`,
+        `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/orders/my-orders`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

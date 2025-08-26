@@ -48,7 +48,7 @@ const Products = () => {
       try {
         
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URI}/subcategories`
+          `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/subcategories`
         );
         if (response.status === 200) {
           setAllSubCategories(response.data.data);
@@ -96,7 +96,7 @@ const Products = () => {
       params.append("limit", pagination.limit.toString());
 
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URI}/products/search?${params.toString()}`
+        `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/products/search?${params.toString()}`
       );
 
       if (response.status === 200) {

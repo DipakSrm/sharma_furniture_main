@@ -12,7 +12,7 @@ const CategoriesSection = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URI}/categories`
+          `${import.meta.env.VITE_API_LOCAL_URI ||  import.meta.env.VITE_API_URI}/categories`
         );
         if (response.status === 200) {
           setCategories(response.data.data);

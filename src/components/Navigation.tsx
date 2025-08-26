@@ -72,7 +72,7 @@ const Navigation = () => {
     try {
       const response = await axios.get(
         `${
-          import.meta.env.VITE_API_URI
+          import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI
         }/products/search?search=${encodeURIComponent(query)}&limit=12`
       );
 
