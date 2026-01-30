@@ -35,7 +35,6 @@ export interface ICategory {
   _id: string;
   name: string;
   slug: string;
-  description?: string;
   ref_image:string;
   count: number; // Number of products in this category
 }

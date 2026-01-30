@@ -1,7 +1,6 @@
 
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { products, categories } from "@/data/products";
 import { ICategory } from "@/lib/types";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -41,11 +40,6 @@ const CategoriesSection = () => {
               <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
                 <CardContent className="p-6 text-center">
                   <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 group-hover:scale-105 transition-transform">
-                    <img 
-                      src={category.ref_image} 
-                      alt={category.name}
-                      className="w-full h-full object-cover"
-                    />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">{category.name}</h3>
                   <p className="text-sm text-gray-500">{category.count} items</p>

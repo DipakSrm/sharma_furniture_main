@@ -105,12 +105,12 @@ try {
         {
           return_url: `${
             import.meta.env.VITE_API_LOCAL_URI
-              ? "http://localhost:8081/orderConfirmation"
+              ? "http://localhost:3000/orderConfirmation"
               : "http://sharmafurnitures.vercel.app/orderConfirmation"
           }`,
           website_url: `${
             import.meta.env.VITE_API_LOCAL_URI
-              ? "http://localhost:8081/"
+              ? "http://localhost:3000/"
               : "http://sharmafurnitures.vercel.app/"
           }`,
           amount: parseInt((state.total * 1.13 * 100).toFixed(2)),

@@ -27,7 +27,7 @@ const [order, setOrder] = useState<IOrder | null>(null);
       setLoading(true);
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/sorders/${orderId}`,
+          `${import.meta.env.VITE_API_LOCAL_URI || import.meta.env.VITE_API_URI}/orders/${orderId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -68,12 +68,12 @@ const handleKhaltiPayment = async () => {
           {
             return_url: `${
               import.meta.env.VITE_API_LOCAL_URI
-                ? "http://localhost:8081/orderConfirmation"
+                ? "http://localhost:3000/orderConfirmation"
                 : "http://sharmafurnitures.vercel.app/orderConfirmation"
             }`,
             website_url: `${
               import.meta.env.VITE_API_LOCAL_URI
-                ? "http://localhost:8081/"
+                ? "http://localhost:3000/"
                 : "http://sharmafurnitures.vercel.app/"
             }`,
             amount: parseInt((order.totalAmount * 100).toFixed(2)), // Convert to paisa
